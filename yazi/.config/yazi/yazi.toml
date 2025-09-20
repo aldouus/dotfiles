@@ -1,0 +1,23 @@
+# ~/.config/yazi/opener.toml
+
+[[opener]]
+mime = "text/*"
+# Add a logging command before nvim
+exec = 'echo "YAZI: Attempting to open text/* with nvim: $@" >> /tmp/yazi_debug.log; nvim "$@"'
+block = true
+orphan = true
+
+[[opener]]
+mime = "application/x-shellscript"
+# Add a logging command before nvim
+exec = 'echo "YAZI: Attempting to open shellscript with nvim: $@" >> /tmp/yazi_debug.log; nvim "$@"'
+block = true
+orphan = true
+
+[[opener]]
+name = "*.{json,yaml,yml,toml,md,txt,conf,cfg,ini,log,lua,py,js,ts,go,rs,c,cpp,h,hpp,java,rb,php,html,css,scss,sh,zsh,fish,conf,env,env.*}"
+# Add a logging command before nvim
+exec = 'echo "YAZI: Attempting to open by name with nvim: $@" >> /tmp/yazi_debug.log; nvim "$@"'
+block = true
+orphan = true
+
