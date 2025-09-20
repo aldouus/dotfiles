@@ -1,0 +1,50 @@
+theme = "Peppermint"
+font-size = 16
+mouse-hide-while-typing = true
+window-decoration = true
+window-padding-balance = true
+window-height = 30
+window-width = 116
+keybind = global:cmd+/=toggle_quick_terminal
+keybind = ctrl+b=text:\x02
+focus-follows-mouse = true
+macos-option-as-alt = true
+font-feature = "-liga"
+font-feature = "-dlig"
+font-feature = "-calt"
+font-family = "Iosevka Term"
+# font-family-italic = "Iosevka Term Regular"
+font-synthetic-style = false
+font-thicken = true
+font-thicken-strength = 250
+selection-foreground = "#cdd6f4"
+selection-background = "#45475a"
+unfocused-split-opacity = 0.9
+unfocused-split-fill = #050505
+split-divider-color = #454545
+background-blur = 150
+background-opacity = 1.0
+# custom-shader=/Users/aldous/.config/ghostty/shaders/cursor-blaze.glsl
+
+window-theme = system
+macos-titlebar-style = transparent
+
+
+background = 101010
+foreground = a6accd
+palette = 0=1B1E28
+palette = 1=D0679D
+palette = 2=5DE4C7
+palette = 3=FFFAC2
+palette = 4=89DDFF
+palette = 5=FCC5E9
+palette = 6=ADD7FF
+palette = 7=FFFFFF
+palette = 8=A6ACCD
+palette = 9=D0679D
+palette = 10=5DE4C7
+palette = 11=FFFAC2
+palette = 12=ADD7FF
+palette = 13=FAE4FC
+palette = 14=89DDFF
+palette = 15=FFFFFF
