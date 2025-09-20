@@ -265,6 +265,7 @@ cask "warp"
 cask "wine-stable"
 cask "wireshark-app"
 cask "zed"
+cask "zen"
 cask "zulu@17"
 mas "Command X", id: 6448461551
 mas "Compressor", id: 424390742
