@@ -38,6 +38,7 @@ return {
 				},
 			},
 		},
+		terminal = { enabled = true },
 	},
 
 	keys = {
@@ -65,7 +66,7 @@ return {
 		{
 			"<leader>ff",
 			function()
-				Snacks.penabledicker.files()
+				Snacks.picker.files()
 			end,
 			desc = "Find Files",
 		},
@@ -170,6 +171,28 @@ return {
 			end,
 			desc = "Prev Reference",
 			mode = { "n", "t" },
+		},
+		{
+			"<leader>jj",
+			function()
+				local Snacks = require("snacks")
+				Snacks.terminal.toggle({ "/opt/homebrew/bin/lazyjj" }, {
+					id = "lazyjj-floating",
+					win = {
+						style = "float",
+						border = "rounded",
+						height = 0.8,
+						width = 0.8,
+						title = " lazyjj ",
+						title_pos = "center",
+					},
+					start_insert = true,
+					close_on_exit = false,
+					cwd = vim.loop.cwd(),
+					clear_env = false,
+				})
+			end,
+			desc = "Lazyjj",
 		},
 	},
 }
