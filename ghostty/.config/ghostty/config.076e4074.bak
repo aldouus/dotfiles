@@ -48,4 +48,3 @@ palette = 12=ADD7FF
 palette = 13=FAE4FC
 palette = 14=89DDFF
 palette = 15=FFFFFF
-keybind = shift+enter=text:\x1b\r

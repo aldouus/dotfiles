@@ -19,6 +19,7 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+			local util = require("lspconfig.util")
 
 			local function on_attach(client, bufnr)
 				if
@@ -36,8 +37,38 @@ return {
 				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 			end
 
+			local eslint_or_prettier = util.root_pattern(
+				"eslint.config.js",
+				"eslint.config.ts",
+				"eslint.config.mjs",
+				"eslint.config.cjs",
+				".eslintrc",
+				".eslintrc.js",
+				".eslintrc.cjs",
+				".eslintrc.json",
+				".eslintrc.yml",
+				".eslintrc.yaml",
+				".prettierrc",
+				".prettierrc.json",
+				".prettierrc.yml",
+				".prettierrc.yaml",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				"prettier.config.js",
+				"prettier.config.ts",
+				"prettier.config.cjs"
+			)
+
 			lspconfig.biome.setup({
 				cmd = { "biome", "lsp-proxy" },
+				root_dir = function(fname)
+					local has_ep = eslint_or_prettier(fname)
+					if has_ep then
+						return nil
+					end
+					return util.root_pattern("biome.json", "package.json", "tsconfig.json", ".git")(fname)
+				end,
+				single_file_support = false,
 				filetypes = {
 					"astro",
 					"graphql",
@@ -47,22 +78,24 @@ return {
 					"jsonc",
 					"svelte",
 					"typescript",
-					"typescript.tsx",
 					"typescriptreact",
 					"vue",
 				},
-				root_dir = function()
-					return vim.fn.getcwd()
-				end,
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 
 			lspconfig.ts_ls.setup({
+				root_dir = function(fname)
+					local has_ep = eslint_or_prettier(fname)
+					if not has_ep then
+						return nil
+					end
+					return util.root_pattern("tsconfig.json", "package.json", ".git")(fname)
+				end,
+				single_file_support = false,
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
+				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
-					on_attach(client, bufnr)
 				end,
 			})
 
@@ -153,6 +186,11 @@ return {
 			})
 
 			lspconfig.csharp_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig.glsl_analyzer.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})

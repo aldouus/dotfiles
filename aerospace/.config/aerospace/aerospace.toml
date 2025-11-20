@@ -1,7 +1,7 @@
 after-login-command = []
 
 after-startup-command = [
-  'exec-and-forget borders active_color=0xff6a6a69 inactive_color=0xff2b2928 width=5.0 blacklist="Substage,iPhone Mirroring,DeskMinder,CleanMyMac"'
+  'exec-and-forget borders active_color=0xff6a6a69 inactive_color=0xff2b2928 width=5.0 blacklist="Substage,iPhone Mirroring,CleanMyMac,Steam"'
 ]
 
 start-at-login = true
@@ -248,3 +248,6 @@ run= "layout floating"
 if.app-name-regex-substring = 'Legcord'
 run= "layout floating"
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Beeper'
+run= "layout floating"
