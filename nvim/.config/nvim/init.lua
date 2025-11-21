@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true
+vim.opt.showmode = false
 
 vim.o.exrc = true
 
