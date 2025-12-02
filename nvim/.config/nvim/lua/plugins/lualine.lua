@@ -7,12 +7,12 @@ return {
 			options = {
 				icons_enabled = false,
 				theme = {
-					normal = { c = { bg = "#101010" } },
-					insert = { c = { bg = "#101010" } },
-					visual = { c = { bg = "#101010" } },
-					replace = { c = { bg = "#101010" } },
-					command = { c = { bg = "#101010" } },
-					inactive = { c = { bg = "#101010" } },
+					normal = { c = { bg = "#000000" } },
+					insert = { c = { bg = "#000000" } },
+					visual = { c = { bg = "#000000" } },
+					replace = { c = { bg = "#000000" } },
+					command = { c = { bg = "#000000" } },
+					inactive = { c = { bg = "#000000" } },
 				},
 				component_separators = { left = " ", right = " " },
 				section_separators = { left = "", right = "" },

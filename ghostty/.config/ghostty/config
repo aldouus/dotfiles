@@ -30,7 +30,7 @@ window-theme = system
 macos-titlebar-style = transparent
 
 
-background = 101010
+background = 000000
 foreground = a6accd
 palette = 0=1B1E28
 palette = 1=D0679D

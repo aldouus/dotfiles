@@ -150,13 +150,6 @@ return {
 			mode = { "n", "v" },
 		},
 		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Lazygit",
-		},
-		{
 			"]]",
 			function()
 				Snacks.words.jump(vim.v.count1)

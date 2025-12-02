@@ -21,8 +21,8 @@ local function set_neotree_highlights()
 	vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
 	vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
 	vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
-	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#101010" })
-	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#101010" })
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#000000" })
 end
 
 return {
