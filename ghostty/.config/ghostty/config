@@ -24,7 +24,7 @@ unfocused-split-fill = #050505
 split-divider-color = #454545
 background-blur = 150
 background-opacity = 1
-# custom-shader=/Users/aldous/.config/ghostty/shaders/cursor-blaze.glsl
+custom-shader=shaders/cursor-smear.glsl
 
 window-theme = system
 macos-titlebar-style = transparent
