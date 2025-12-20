@@ -1,5 +1,5 @@
 local function set_neotree_highlights()
-	local dimmed_color = "#646464"
+	local dimmed_color = "#a8b1d6"
 	local mini_icons_groups = {
 		"MiniIconsAzure",
 		"MiniIconsBlue",
@@ -21,8 +21,8 @@ local function set_neotree_highlights()
 	vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
 	vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
 	vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
-	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000" })
-	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#000000" })
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 end
 
 return {
