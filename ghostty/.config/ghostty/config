@@ -1,5 +1,6 @@
+auto-update-channel = tip
 theme = "Peppermint"
-font-size = 16
+font-size = 14
 mouse-hide-while-typing = true
 window-decoration = true
 window-padding-balance = true
@@ -16,14 +17,14 @@ font-family = "Iosevka Term"
 # font-family-italic = "Iosevka Term Regular"
 font-synthetic-style = false
 font-thicken = true
-font-thicken-strength = 250
+font-thicken-strength = 200
 selection-foreground = "#cdd6f4"
 selection-background = "#45475a"
 unfocused-split-opacity = 0.9
 unfocused-split-fill = #050505
 split-divider-color = #454545
-background-blur = 150
-background-opacity = 1
+background-blur = macos-glass-regular
+background-opacity = 0.999
 custom-shader=shaders/cursor-smear.glsl
 
 window-theme = system
