@@ -7,18 +7,10 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			auto_install = true,
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
 			local util = require("lspconfig.util")
 
 			local function on_attach(client, bufnr)
@@ -59,14 +51,18 @@ return {
 				"prettier.config.cjs"
 			)
 
-			lspconfig.biome.setup({
+			vim.lsp.config("biome", {
 				cmd = { "biome", "lsp-proxy" },
-				root_dir = function(fname)
+				root_dir = function(bufnr, on_dir)
+					local fname = vim.api.nvim_buf_get_name(bufnr)
 					local has_ep = eslint_or_prettier(fname)
 					if has_ep then
-						return nil
+						return
 					end
-					return util.root_pattern("biome.json", "package.json", "tsconfig.json", ".git")(fname)
+					local root = util.root_pattern("biome.json", "package.json", "tsconfig.json", ".git")(fname)
+					if root then
+						on_dir(root)
+					end
 				end,
 				single_file_support = false,
 				filetypes = {
@@ -82,24 +78,18 @@ return {
 					"vue",
 				},
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
-			lspconfig.ts_ls.setup({
-				root_dir = function(fname)
-					local has_ep = eslint_or_prettier(fname)
-					if not has_ep then
-						return nil
+			vim.lsp.config("ts_ls", {
+				root_dir = function(bufnr, on_dir)
+					local fname = vim.api.nvim_buf_get_name(bufnr)
+					local root = util.root_pattern("tsconfig.json", "package.json", ".git")(fname)
+					if root then
+						on_dir(root)
 					end
-					return util.root_pattern("tsconfig.json", "package.json", ".git")(fname)
 				end,
 				single_file_support = false,
-				capabilities = capabilities,
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-				end,
-			})
-
-			lspconfig.html.setup({
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					client.server_capabilities.documentFormattingProvider = false
@@ -107,21 +97,31 @@ return {
 				end,
 			})
 
-			lspconfig.cssls.setup({
+			vim.lsp.config("html", {
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					on_attach(client, bufnr)
+				end,
+			})
+
+			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.tailwindcss.setup({
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
-				root_dir = function(fname)
-					return require("lspconfig.util").root_pattern(
+				root_dir = function(bufnr, on_dir)
+					local fname = vim.api.nvim_buf_get_name(bufnr)
+					local root = util.root_pattern(
 						"assets/tailwind.config.ts",
 						"assets/tailwind.config.js",
 						"assets/tailwind.config.cjs",
 						"assets/package.json",
 						".git"
-					)(fname) or vim.fn.getcwd()
+					)(fname)
+					on_dir(root or vim.fn.getcwd())
 				end,
 				filetypes = {
 					"css",
@@ -165,39 +165,41 @@ return {
 				on_attach = on_attach,
 			})
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.zls.setup({
+			vim.lsp.config("zls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.astro.setup({
+			vim.lsp.config("astro", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.intelephense.setup({
+			vim.lsp.config("intelephense", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.glsl_analyzer.setup({
+			vim.lsp.config("glsl_analyzer", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
-			lspconfig.ols.setup({
+			vim.lsp.config("ols", {
 				cmd = { "ols" },
 				filetypes = { "odin" },
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					if client.server_capabilities.documentFormattingProvider then
 						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
+							group = vim.api.nvim_create_augroup("FormatOnSave", {
+								clear = true,
+							}),
 							buffer = bufnr,
 							callback = function()
 								vim.lsp.buf.format({ bufnr = bufnr })
@@ -206,6 +208,20 @@ return {
 					end
 					on_attach(client, bufnr)
 				end,
+			})
+
+			vim.lsp.enable({
+				"biome",
+				"ts_ls",
+				"html",
+				"cssls",
+				"tailwindcss",
+				"lua_ls",
+				"zls",
+				"astro",
+				"intelephense",
+				"glsl_analyzer",
+				"ols",
 			})
 		end,
 	},

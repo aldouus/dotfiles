@@ -14,7 +14,7 @@ return {
 		checkbox = {
 			enabled = false,
 		},
-		render_modes = { "n", "c", "t" },
+		render_modes = { "n", "c", "t", "i" },
 	},
 	config = function(_, opts)
 		require("render-markdown").setup(opts)

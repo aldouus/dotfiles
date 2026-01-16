@@ -28,3 +28,5 @@
 	defaultBranch = main
 [safe]
 	directory = *
+[credential]
+	helper = cache

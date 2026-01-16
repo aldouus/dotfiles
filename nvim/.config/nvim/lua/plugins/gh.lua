@@ -10,7 +10,9 @@ return {
 			},
 		},
 		config = function()
-			require("litee.gh").setup()
+			require("litee.gh").setup({
+			icon_set = "nerd",
+		})
 		end,
 	},
 }

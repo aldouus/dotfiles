@@ -123,7 +123,13 @@ return {
 		{
 			"<c-/>",
 			function()
-				Snacks.terminal()
+				Snacks.terminal(nil, {
+					win = {
+						position = "left",
+						width = 64,
+						winfixwidth = true,
+					},
+				})
 			end,
 			desc = "Toggle Terminal",
 		},

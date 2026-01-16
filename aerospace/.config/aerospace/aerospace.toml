@@ -31,10 +31,10 @@ automatically-unhide-macos-hidden-apps = false
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = [{ monitor.main = 200 }, { monitor.secondary = 255 }, 8]
-outer.bottom = [{ monitor.main = 135 }, { monitor.secondary = 135 }, 8]
-outer.top = [{ monitor.main = 135 }, { monitor.secondary = 135 }, 8]
-outer.right = [{ monitor.main = 200 }, { monitor.secondary = 255 }, 8]
+outer.left = 8
+outer.bottom =  8
+outer.top = 8 
+outer.right = 8
 
 [workspace-to-monitor-force-assignment]
 5 = 'main'

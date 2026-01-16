@@ -28,6 +28,8 @@ alias exs_top='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1
 
 setopt vi
 
+set zle_bracketed_paste
+
 # Exports
 export EDITOR="nvim"
 
@@ -64,8 +66,10 @@ export NVM_DIR="$HOME/.nvm"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# Shopify Hydrogen alias to local projects
-alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
+# pnpm
+export PNPM_HOME="/Users/aldous/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

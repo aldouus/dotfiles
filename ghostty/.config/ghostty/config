@@ -1,4 +1,3 @@
-auto-update-channel = tip
 theme = "Peppermint"
 font-size = 14
 mouse-hide-while-typing = true
@@ -7,6 +6,7 @@ window-padding-balance = true
 window-height = 30
 window-width = 116
 keybind = global:cmd+/=toggle_quick_terminal
+quick-terminal-animation-duration = 0
 keybind = ctrl+b=text:\x02
 focus-follows-mouse = true
 macos-option-as-alt = true
@@ -23,16 +23,17 @@ selection-background = "#45475a"
 unfocused-split-opacity = 0.9
 unfocused-split-fill = #050505
 split-divider-color = #454545
-background-blur = macos-glass-regular
-background-opacity = 0.999
+# background-blur = macos-glass-regular
+# background-opacity = 0.9
 custom-shader=shaders/cursor-smear.glsl
+shell-integration-features = ssh-env
 
 window-theme = system
 macos-titlebar-style = transparent
 
 
 background = 000000
-foreground = a6accd
+foreground = ffffff
 palette = 0=1B1E28
 palette = 1=D0679D
 palette = 2=5DE4C7
