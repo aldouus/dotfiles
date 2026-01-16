@@ -11,7 +11,7 @@ vim.keymap.set("t", "<c-l>", "<C-\\><C-n>:wincmd l<CR>", { silent = true })
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
 vim.api.nvim_set_keymap("n", "<C-t>", ":tabnew<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-w>", ":tabclose<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-q>", ":tabclose<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-]>", ":tabnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-[>", ":tabprevious<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-t>", "<C-T>", { noremap = true, silent = true })
