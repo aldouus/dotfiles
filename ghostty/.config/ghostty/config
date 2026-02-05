@@ -6,15 +6,19 @@ window-padding-balance = true
 window-height = 30
 window-width = 116
 keybind = global:cmd+/=toggle_quick_terminal
+keybind = cmd+alt+h=goto_split:left
+keybind = cmd+alt+j=goto_split:down
+keybind = cmd+alt+k=goto_split:up
+keybind = cmd+alt+l=goto_split:right
 quick-terminal-animation-duration = 0
 keybind = ctrl+b=text:\x02
 focus-follows-mouse = true
 macos-option-as-alt = true
+macos-titlebar-style = hidden
 font-feature = "-liga"
 font-feature = "-dlig"
 font-feature = "-calt"
 font-family = "Iosevka Term"
-# font-family-italic = "Iosevka Term Regular"
 font-synthetic-style = false
 font-thicken = true
 font-thicken-strength = 200
