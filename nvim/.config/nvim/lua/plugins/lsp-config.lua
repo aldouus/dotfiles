@@ -210,6 +210,11 @@ return {
 				end,
 			})
 
+			vim.lsp.config("gopls", {
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			vim.lsp.enable({
 				"biome",
 				"ts_ls",
@@ -222,6 +227,7 @@ return {
 				"intelephense",
 				"glsl_analyzer",
 				"ols",
+				"gopls",
 			})
 		end,
 	},

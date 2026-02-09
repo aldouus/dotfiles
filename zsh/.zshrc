@@ -24,7 +24,6 @@ ci() {
 alias ls="eza"
 alias v="nvim"
 alias fs="yazi"
-alias cd="z"
 alias cc="claude"
 alias oc="opencode"
 alias tx="tmux"
