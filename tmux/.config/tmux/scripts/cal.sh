@@ -50,4 +50,4 @@ if [[ ${#title} -gt $MAX_TITLE_LEN ]]; then
     title="${title:0:$MAX_TITLE_LEN}…"
 fi
 
-echo "$NERD_FONT_MEETING $title ($display_time)"
+echo "$NERD_FONT_MEETING $title ($display_time) —"
