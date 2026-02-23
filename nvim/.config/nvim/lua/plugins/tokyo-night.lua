@@ -6,7 +6,8 @@ return {
 	config = function()
 		require("tokyonight").setup({
 			on_colors = function(colors)
-				colors.red = colors.blue2
+				colors.orange = colors.white
+				colors.red = colors.fg
 				colors.green1 = colors.fg
 				colors.blue5 = colors.fg_dark
 			end,
