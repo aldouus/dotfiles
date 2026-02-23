@@ -7,7 +7,7 @@
 # - animation_duration: seconds per animation (>= 0.0, typical 0.15–0.35)
 # - animation_fps: frames per second (0.0 = display refresh rate). 60–120 recommended.
 #   ease_in_circ, ease_out_circ, ease_in_out_circ
-animate = false
+animate = true
 animation_duration = 0.3
 animation_fps = 120.0
 
@@ -186,7 +186,7 @@ spacing = 1.0
 
 # experimental mission control
 [settings.ui.mission_control]
-enabled = false
+enabled = true
 # enable fade animation when entering/exiting mission control
 fade_enabled = false
 # native macos mission control fade is about 180ms
@@ -462,11 +462,9 @@ comb1 = "Alt + Shift"
 # "Alt + Ctrl + Right" = { move_window_to_display = { selector = "right" } }
 # "Alt + Ctrl + A" = { move_window_to_display = { selector = 0 } }
 
-# if mission control is enabled
-# this will show an exploded view of the windows in the active workspace
-# "Alt + Ctrl + Shift + M" = "show_mission_control_current"
-# this will show the mission control view shown in the readme
-# "Alt + Ctrl + M" = "show_mission_control_all"
+# mission control
+"Alt + Ctrl + Shift + M" = "show_mission_control_current"
+"Alt + Ctrl + M" = "show_mission_control_all"
 
 "Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
 
