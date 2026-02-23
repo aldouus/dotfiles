@@ -67,6 +67,10 @@ alias -s jpeg="open"
 alias exs_left='displayplacer "id:1E4992DD-DA43-4DA2-8615-AB9A698F47BC res:2560x1440 hz:144 color_depth:8 scaling:off origin:(0,0) degree:0" "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1169 hz:120 color_depth:8 scaling:on origin:(-1800,271) degree:0"'
 alias exs_top='displayplacer "id:37D8832A-2D66-02CA-B9F7-8F30A301B230 res:1800x1169 hz:120 color_depth:8 scaling:on origin:(0,0) degree:0" "id:1E4992DD-DA43-4DA2-8615-AB9A698F47BC res:2560x1440 hz:144 color_depth:8 scaling:off origin:(-380,-1440) degree:0"'
 
+# history substring search
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
 setopt vi
 
 set zle_bracketed_paste
@@ -84,7 +88,6 @@ source <(carapace _carapace)
 
 # Zoxide
 eval "$(zoxide init zsh)"
-
 
 # bun completions
 [ -s "/Users/aldous/.bun/_bun" ] && source "/Users/aldous/.bun/_bun"
@@ -114,6 +117,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Added by Antigravity
-export PATH="/Users/aldous/.antigravity/antigravity/bin:$PATH"
